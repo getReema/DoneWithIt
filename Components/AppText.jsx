@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, Platform } from 'react-native'
 import colors from '../app/config/colors'
 
 export default function AppText(props) {
-    const { children, color = "black" } = props
+    const { children, color = "black", style } = props
 
     return (
         <View>
-             <Text style={[styles.text, { color: colors[color] }]}>{props.children}</Text>
+            <Text style={[styles.text, { color: colors[color] }, style]}>{props.children}</Text>
         </View>
     )
 }

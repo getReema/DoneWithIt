@@ -5,17 +5,11 @@ import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import AppButton from './Components/AppButton';
 import Card from './Components/Card';
+import ListingDetailsScreen from './Components/ListingDetailsScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-    <Card
-      title='Red Jacket for sale'
-      subtitle='$100'
-      image={require('./app/assets/jacket.jpg')}
-    />
-
-  </View>
+    <ListingDetailsScreen />
   );
 }
 
