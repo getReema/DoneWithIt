@@ -1,12 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 
 export default function WelcomeScreen() {
     return (
-        <View>
-            <Text></Text>
-        </View>
+        <ImageBackground style= {styles.background}
+        source= {require('../assets/background.jpg')}>
+        </ImageBackground>
+
+        
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    background: {
+        flex:1,
+    }
+
+})
