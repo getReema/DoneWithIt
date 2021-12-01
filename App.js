@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View,ImageBackground  } from 'react-native';
+import React ,  { useState }from 'react';
+import { SafeAreaView, StyleSheet, Text, View,ImageBackground,TextInput   } from 'react-native';
 import MessageScreen from './app/screens/MessageScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -13,8 +13,24 @@ import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 
 export default function App() {
+  const [firstName, setFirstName] = useState('');
+
   return (
-    <ListingsScreen />
+   <Screen>
+      <TextInput
+        placeholder="First Name"
+        onChangeText={(text) => setFirstName(text)}
+        style={{
+          borderBottomColor: '#ccc',
+          borderBottomWidth: 1
+        }}
+        clearButtonMode="always"
+        secureTextEntry={true}
+
+
+      />
+      <Text>{firstName}</Text>
+    </Screen>
   );
 }
 
