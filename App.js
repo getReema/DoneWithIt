@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import MessageScreen from './app/screens/MessageScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import AppButton from './Components/AppButton';
@@ -9,7 +10,7 @@ import ListingDetailsScreen from './Components/ListingDetailsScreen';
 
 export default function App() {
   return (
-    <ViewImageScreen />
+   <MessageScreen></MessageScreen>
   );
 }
 
