@@ -46,7 +46,7 @@ export default function ListingsScreen(props) {
 const styles = StyleSheet.create({
     screen: {
         backgroundColor: colors.light,
-        padding: 25
+        padding: 30
 
 
     }
