@@ -9,18 +9,11 @@ import Card from './Components/Card';
 import ListingDetailsScreen from './Components/ListingDetailsScreen';
 import Screen from './Components/Screen';
 import Icon from './Components/Icon';
+import AccountScreen from './app/screens/AccountScreen';
 
 export default function App() {
   return (
-    <Screen>
-      <Icon
-        name="email"
-        size={60}
-        backgroundColor="greenyellow"
-        iconColor="white"
-
-      />
-    </Screen>
+    <AccountScreen />
   );
 }
 
