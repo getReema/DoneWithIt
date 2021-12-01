@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 
 import ListItem from '../../Components/ListItem'
 
+import Constants from 'expo-constants';
+
+import Screen from '../../Components/Screen';
 
 const messages = [
     {
@@ -22,20 +25,22 @@ const messages = [
 
 
 export default function MessageScreen() {
+    console.log('constants:'+ Constants)
     return (
-        <FlatList
-            data={messages}
-            keyExtractor={message => message.id.toString()}
-            renderItem={({ item }) =>
-                <ListItem
-                    title={item.title}
-                    subtitle={item.description}
-                    image={item.image}
+        <Screen>
+            <FlatList
+                data={messages}
+                keyExtractor={message => message.id.toString()}
+                renderItem={({ item }) =>
+                    <ListItem
+                        title={item.title}
+                        subtitle={item.description}
+                        image={item.image}
 
-                />}
+                    />}
 
-
-        />
+            />
+        </Screen>
     )
 }
 

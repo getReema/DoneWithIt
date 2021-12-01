@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import MessageScreen from './app/screens/MessageScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -10,7 +10,9 @@ import ListingDetailsScreen from './Components/ListingDetailsScreen';
 
 export default function App() {
   return (
+    <SafeAreaView>
    <MessageScreen></MessageScreen>
+   </SafeAreaView>
   );
 }
 
