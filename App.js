@@ -9,7 +9,7 @@ import ListingDetailsScreen from './Components/ListingDetailsScreen';
 
 export default function App() {
   return (
-    <ListingDetailsScreen />
+    <ViewImageScreen />
   );
 }
 
