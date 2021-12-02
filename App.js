@@ -28,7 +28,7 @@ const Link = () => {
   return (
     <Button
       title='Click'
-      onPress={() => navigation.navigate('TweetDetails')}
+      onPress={() => navigation.navigate('TweetDetails', { id: 1 })}
     />
   )
 }
@@ -41,9 +41,9 @@ const Tweets = ({ navigation }) => (
 </Screen>
 )
 
-const TweetDetails = () => (
+const TweetDetails = ({ route }) => (
   <Screen>
-    <Text>Tweet Details</Text>
+    <Text>Tweet Details {route.params.id} </Text>
   </Screen>
 )
 
