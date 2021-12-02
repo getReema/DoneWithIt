@@ -9,6 +9,7 @@ import AppTextInput from '../../Components/AppTextInput';
 import AppButton from '../../Components/AppButton';
 import AppText from '../../Components/AppText';
 import ErrorMessage from '../../Components/ErrorMessage';
+import AppFormField from '../../Components/AppFormField';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required().email().label('Email'),
@@ -29,34 +30,33 @@ export default function LoginScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-               {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) =>
+              {({ handleSubmit }) =>
 
                 (
                     <React.Fragment>
-                        <AppTextInput
+                        <AppFormField
                             icon="email"
                             keyboardType="email-address"
                             placeholder='Email'
                             textContentType="emailAddress"
                             autoCorrect={false}
                             autoCapitalize="none"
-                            onChangeText={handleChange('username')}
+                            name="username"
 
                         />
-                        <ErrorMessage error={errors.username} visible={touched.username} />
 
-                        <AppTextInput
+                        <AppFormField
                             icon="lock"
                             secureTextEntry={true}
                             placeholder='Password'
                             textContentType="password"
                             autoCorrect={false}
                             autoCapitalize="none"
-                            onChangeText={handleChange('password')}
+                            name="password"
 
 
                         />
-                         <ErrorMessage error={errors.password} visible={touched.password} />
+  
 
                         <AppButton
                             title="Login"
