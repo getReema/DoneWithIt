@@ -23,99 +23,21 @@ import { Button } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Link = () => {
-  const navigation = useNavigation();
-  return (
-    <Button
-      title='Click'
-      onPress={() => navigation.navigate('TweetDetails', { id: 1, name: 'Second Tweet' })}
-    />
-  )
-}
+import AuthNavigator from './app/navigation/AuthNavigator'
 
 
-const Tweets = () => (
-  <Screen>
-    <Text>Tweets</Text>
-    <Link />
-  </Screen>
-)
 
-const Account = () => (
-  <Screen>
-    <Text>Accounts</Text>
 
-  </Screen>
-)
 
-const TweetDetails = ({ route }) => (
-  <Screen>
-    <Text>Tweet Details {route.params.id} </Text>
-  </Screen>
-)
 
-const Stack = createNativeStackNavigator();
-const StackNavigator = () => (
-  <Stack.Navigator initialRouteName="Tweets"
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: 'dodgerblue',
-      },
-      headerTintColor: 'white',
-      headerShown: true
-    }}
 
-  >
-    <Stack.Screen
-      name="Tweets"
-      component={Tweets}
-      options={{
-        headerStyle: {
-          backgroundColor: 'tomato',
-        },
-        headerTintColor: 'white',
-        headerShown: true
-      }}
-    />
-    <Stack.Screen
-      name="TweetDetails"
-      component={TweetDetails}
-      options={({ route }) => ({ title: route.params.name })}
-    />
-  </Stack.Navigator>
-);
-
-const Tab = createBottomTabNavigator();
-const TabNavigator = () => (
-<Tab.Navigator
-    tabBarOptions={{
-      activeBackgroundColor: 'tomato',
-      activeTintColor: 'white',
-      inactiveBackgroundColor: '#eee',
-      inactiveTintColor: 'black'
-    }}
-  >
-    <Tab.Screen name="Feed" component={StackNavigator}
-      options={{
-        tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="home" size={size} color={color} />
-      }}
-    />
-    <Tab.Screen name="Account" component={Account}
-      options={{
-        tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="account" size={size} color={color} />
-      }}
-
-    />
-  </Tab.Navigator>
-)
 
 export default function App() {
 
 
   return (
     <NavigationContainer>
-      <TabNavigator />
+       <AuthNavigator />
   </NavigationContainer>
   );
 }
