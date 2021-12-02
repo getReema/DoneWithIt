@@ -20,6 +20,7 @@ import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import { Button } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -34,11 +35,18 @@ const Link = () => {
 }
 
 
-const Tweets = ({ navigation }) => (
+const Tweets = () => (
   <Screen>
-  <Text>Tweets</Text>
-  <Link />
-</Screen>
+    <Text>Tweets</Text>
+    <Link />
+  </Screen>
+)
+
+const Account = () => (
+  <Screen>
+    <Text>Accounts</Text>
+
+  </Screen>
 )
 
 const TweetDetails = ({ route }) => (
@@ -78,12 +86,20 @@ const StackNavigator = () => (
   </Stack.Navigator>
 );
 
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={Tweets} />
+    <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>
+)
+
 export default function App() {
 
 
   return (
     <NavigationContainer>
-    <StackNavigator />
+      <TabNavigator />
   </NavigationContainer>
   );
 }
