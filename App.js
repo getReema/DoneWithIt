@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, TextInput,Switch  } from 'reac
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import AppButton from './Components/AppButton';
 import Card from './Components/Card';
 import ListingDetailsScreen from './app/screens/ListingsScreen';
@@ -19,15 +19,26 @@ import AppPicker from './Components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import { Button } from 'react-native';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Link = () => {
+  const navigation = useNavigation();
+  return (
+    <Button
+      title='Click'
+      onPress={() => navigation.navigate('TweetDetails')}
+    />
+  )
+}
 
 
-const Tweets = () => (
+const Tweets = ({ navigation }) => (
   <Screen>
-    <Text>Tweets</Text>
-  </Screen>
+  <Text>Tweets</Text>
+  <Link />
+</Screen>
 )
 
 const TweetDetails = () => (
