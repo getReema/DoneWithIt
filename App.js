@@ -21,7 +21,7 @@ import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import { Button } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Link = () => {
@@ -88,9 +88,25 @@ const StackNavigator = () => (
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Feed" component={Tweets} />
-    <Tab.Screen name="Account" component={Account} />
+<Tab.Navigator
+    tabBarOptions={{
+      activeBackgroundColor: 'tomato',
+      activeTintColor: 'white',
+      inactiveBackgroundColor: '#eee',
+      inactiveTintColor: 'black'
+    }}
+  >
+    <Tab.Screen name="Feed" component={Tweets}
+      options={{
+        tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="home" size={size} color={color} />
+      }}
+    />
+    <Tab.Screen name="Account" component={Account}
+      options={{
+        tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="account" size={size} color={color} />
+      }}
+
+    />
   </Tab.Navigator>
 )
 
