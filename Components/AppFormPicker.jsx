@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useFormikContext } from 'formik';
 
-import { AppPicker } from './AppPicker';
-import { ErrorMessage } from './ErrorMessage';
+import AppPicker from './AppPicker';
+import ErrorMessage from './ErrorMessage';
 
-export function AppFormPicker({ items, name, placeholder }) {
+export default function AppFormPicker(props) {
+    const { items, name, placeholder } = props;
+    
     const { errors, touched, values, setFieldValue } = useFormikContext();
     return (
         <React.Fragment>
