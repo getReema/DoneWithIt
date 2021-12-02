@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
-import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 
@@ -11,6 +10,7 @@ import AppText from '../../Components/AppText';
 import ErrorMessage from '../../Components/ErrorMessage';
 import AppFormField from '../../Components/AppFormField';
 import SubmitButton from '../../Components/SubmitButton';
+import AppForm from '../../Components/AppForm';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required().email().label('Email'),
@@ -26,45 +26,33 @@ export default function LoginScreen(props) {
                 source={require('../assets/logo-red.png')}
             />
 
-            <Formik
+            <AppForm
                 initialValues={{ username: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-              {() =>
+             <AppFormField
+                    icon="email"
+                    keyboardType="email-address"
+                    placeholder='Email'
+                    textContentType="emailAddress"
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    name="username"
+                />
+                <AppFormField
+                    icon="lock"
+                    secureTextEntry={true}
+                    placeholder='Password'
+                    textContentType="password"
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    name="password"
+                />
 
-                (
-                    <React.Fragment>
-                        <AppFormField
-                            icon="email"
-                            keyboardType="email-address"
-                            placeholder='Email'
-                            textContentType="emailAddress"
-                            autoCorrect={false}
-                            autoCapitalize="none"
-                            name="username"
+<               SubmitButton title="Login" />
 
-                        />
-
-                        <AppFormField
-                            icon="lock"
-                            secureTextEntry={true}
-                            placeholder='Password'
-                            textContentType="password"
-                            autoCorrect={false}
-                            autoCapitalize="none"
-                            name="password"
-
-
-                        />
-  
-
-                         <SubmitButton title="Login" />
-                    </React.Fragment>
-                )
-
-                }
-            </Formik>
+                </AppForm>
 
 
 
