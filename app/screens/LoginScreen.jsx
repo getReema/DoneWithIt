@@ -10,6 +10,7 @@ import AppButton from '../../Components/AppButton';
 import AppText from '../../Components/AppText';
 import ErrorMessage from '../../Components/ErrorMessage';
 import AppFormField from '../../Components/AppFormField';
+import SubmitButton from '../../Components/SubmitButton';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required().email().label('Email'),
@@ -30,7 +31,7 @@ export default function LoginScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-              {({ handleSubmit }) =>
+              {() =>
 
                 (
                     <React.Fragment>
@@ -58,10 +59,7 @@ export default function LoginScreen(props) {
                         />
   
 
-                        <AppButton
-                            title="Login"
-                            onPress={handleSubmit}
-                        />
+                         <SubmitButton title="Login" />
                     </React.Fragment>
                 )
 
